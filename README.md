@@ -6,8 +6,10 @@ sync confluence from cloud to server site
 ## Authentication
 Basic Authentication with User Name and API Token (applied on https://confluence.atlassian.com/cloud/api-tokens-938839638.html)
 
+Because attachment download by API seems to be a paid feature, I juse browser development tools to get cookies for attachment download authentication.
+
 ## API Doc
-https://developer.atlassian.com/server/confluence/confluence-server-rest-api/
+https://developer.atlassian.com/cloud/confluence/rest/
 
 ## PlantUML
 The data is base64_encode(zlib_compress(url_encode(plaintext_data))). There's no header in the zlib data, so you need to manually set wbits to -15 at decompress.
@@ -47,6 +49,7 @@ The data is plaintext
 usage: sync.py [-h] [--cloud-site-url CLOUD_SITE_URL]
                [--cloud-site-username CLOUD_SITE_USERNAME]
                [--cloud-site-api-token CLOUD_SITE_API_TOKEN]
+               [--cloud-site-cookie CLOUD_SITE_COOKIE]
                [--cloud-site-page-id CLOUD_SITE_PAGE_ID]
                [--server-site-url SERVER_SITE_URL]
                [--server-site-username SERVER_SITE_USERNAME]
@@ -62,6 +65,8 @@ optional arguments:
                         (default: xxx@xxx.com)
   --cloud-site-api-token CLOUD_SITE_API_TOKEN
                         (default: 5IZlhpPLCBfdfNfjWyXXXXXX)
+  --cloud-site-cookie CLOUD_SITE_COOKIE
+                        (default: )
   --cloud-site-page-id CLOUD_SITE_PAGE_ID, -c CLOUD_SITE_PAGE_ID
                         (default: 141000000)
   --server-site-url SERVER_SITE_URL
