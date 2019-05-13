@@ -7,7 +7,7 @@ sync confluence from cloud to server site
 Basic Authentication with User Name and API Token (applied on https://confluence.atlassian.com/cloud/api-tokens-938839638.html)
 
 ## API Doc
-https://developer.atlassian.com/server/confluence/confluence-server-rest-api/
+https://developer.atlassian.com/cloud/confluence/rest/
 
 ## PlantUML
 The data is base64_encode(zlib_compress(url_encode(plaintext_data))). There's no header in the zlib data, so you need to manually set wbits to -15 at decompress.
